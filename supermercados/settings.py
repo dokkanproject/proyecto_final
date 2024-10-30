@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'productos.urls'
+ROOT_URLCONF = 'supermercados.urls'
 
 TEMPLATES = [
     {

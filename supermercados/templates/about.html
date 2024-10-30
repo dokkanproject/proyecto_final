@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title_head %} Sobre Mi{% endblock title_head %}
+{% block texto_principal %}
+<h2 class="section-heading text-uppercase">Sobre el Desarrollador</h2>
+<section class="page-section bg-light" id="team">
+    <div class="container">
+        <div class="text-center">
+            
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src= {%static "assets/img/logo_Massimo.png"%} alt="..." />
+                        <p class="text-muted">Massimo Gagliardi</p>
+                        <p class="text-muted">Diseñador Web</p>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.youtube.com/@Massimo_Gagliardi" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://es.fiverr.com/maxspawn" aria-label="Fiverr"><i class="fab fa-fiverr"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/massimo-gagliardi/" aria-label="Linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">
+                Soy Diseñador web y Multimedia con una amplia experiencia en desarrollo de piezas digitales para Google Ads, Meta Ads y otras plataformas.
+                Llevo casi 12 años trabajando como freelance y más de 11 para diferentes agencias digitales reconocidas, desarrollando Campañas de Ads y Websites para importantes marcas.</p></div>
+        </div>
+    </div>
+</section>
+{% endblock texto_principal %}
+{% block main %}
+
+{% endblock main %}

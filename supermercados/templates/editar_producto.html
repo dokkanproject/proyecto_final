@@ -1,0 +1,37 @@
+{% extends "index.html" %}
+{% block title_head %} Editar Producto {% endblock title_head %}
+{% block texto_principal %}
+Editar Producto {{producto.producto}}
+<br>
+<br>
+<form action={% url "editar_producto" producto.id%} method="POST">
+
+    {% csrf_token %}
+    
+    <div class="container col-md-6 form-group">
+        <div class="form-group">
+            {{form.producto}}
+        </div>
+        <br>
+        <div class="form-group">
+            {{form.marca}}
+        </div>
+        <br>
+        <div class="form-group">
+            {{form.precio}}
+        </div>
+        <br>
+        <div class="form-group">
+            {{form.stock}}
+        </div>
+        <br>
+        <div class="form-group">
+            <input class="btn btn-primary btn-xl text-uppercase" type='submit' value='Enviar' />
+        </div>
+     </div>
+</form>
+{% endblock texto_principal %}
+{% block main %}
+
+
+{% endblock main %}

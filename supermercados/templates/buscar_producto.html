@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title_head %} Buscar Producto {% endblock title_head %}
+{% block texto_principal %}
+
+Buscar Productos
+
+<div class="container col-md-6 form-group">
+    <form action={% url "buscar_producto" %}>
+        <br>
+        {{form.producto}}
+        <br>
+        <div class="form-group">
+            <input class="btn btn-primary btn-xl text-uppercase" type='submit' value='Buscar' />
+        </div>
+    </form>
+</div>
+{% endblock texto_principal %}
+
+{% block main %}
+    {% if productos %}
+    <h4 class="my-3" style="text-align: center;">Productos encontrados</h4>
+        <div class="contenedorListado">
+            <div class="columna col--6of6"><p class="text-muted titulos">PRODUCTO</p></div>
+            <div class="columna col--6of6"><p class="text-muted titulos">MARCA</p></div>
+            <div class="columna col--6of6"><p class="text-muted titulos">PRECIO</p></div>
+            <div class="columna col--6of6"><p class="text-muted titulos">STOCK</p></div>
+            <div class="columna col--6of6"><p class="text-muted titulos">FECHA DE INGRESO</p></div>
+            <div class="columna col--6of6"><p class="text-muted titulos">ACCIONES</p></div>
+            {% for producto in productos %}
+                    <div class="columna col--6of6"><p class="text-muted listado">{{producto.producto}}</p></div>
+                    <div class="columna col--6of6"><p class="text-muted listado">{{producto.marca}}</p></div>
+                    <div class="columna col--6of6"><p class="text-muted listado">{{producto.precio}}</p></div>
+                    <div class="columna col--6of6"><p class="text-muted listado">{{producto.stock}}</p></div>
+                    <div class="columna col--6of6"><p class="text-muted listado">{{producto.fecha}}</p></div>
+                    <div class="columna col--6of6">
+                          <a class="listado" href={% url "ver_producto" producto.id %}>Ver más</a> 
+                        | <a class="listado" href={% url "editar_producto" producto.id %}>Editar</a> 
+                        | <a class="listado" href={% url "eliminar_producto" producto.id %}>Eliminar</a> 
+                    </div>
+            {% endfor %}
+        </div>
+    {% else %}
+    <h4 class="my-3">No se encontraron Productos Registrados</h4>
+    {% endif %}
+{% endblock main %}

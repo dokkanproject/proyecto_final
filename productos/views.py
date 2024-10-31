@@ -2,6 +2,7 @@ from django.template import Template, Context, loader
 from django.shortcuts import render, redirect
 from productos.models import Productos
 from productos.forms import crearFormulario, buscarFormulario, EditarFormulario
+from django.contrib.auth.decorators import login_required
 
 def inicio(request):
     return render(request, 'index.html')
@@ -41,11 +42,13 @@ def verProducto(request, id):
     producto    = Productos.objects.get(id=id)
     return render(request, 'ver_producto.html',{'producto':producto})
 
+@login_required
 def eliminarProducto(request, id):
     producto    = Productos.objects.get(id=id)
     producto.delete()
     return redirect('buscar_producto')
 
+@login_required
 def editarProducto(request, id):
     prod    = Productos.objects.get(id=id)
     

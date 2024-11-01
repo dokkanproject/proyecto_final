@@ -35,7 +35,11 @@
                         <li class="nav-item"><a class="nav-link" href={% url "buscar_producto" %}>Buscar Producto</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url "sobreMi" %}>About Me</a></li>
                         {% if request.user.is_authenticated %}
-                        <li class="nav-item"><p class="nav-link">{{request.user.username}}</p></li>
+                        <li class="nav-item">
+                            <a class="navbar-brand" href={% url "usuarios:editar_perfil" %}>
+                                <img src={{request.user.datosextra.avatar.url}} alt="" height='40px'>
+                                {{request.user.username}}
+                            </a></li>
                         <form action={% url "usuarios:logout" %} method='POST'>
                             {% csrf_token %}
                             <input class="btn btn-secondary" type="submit" value='Cerrar Sesión'>

@@ -34,7 +34,9 @@ Se Creó un Sistema de Carga de Productos para Supermercados
     . Buscar Usuarios (Muestra el Listado de los Usuarios) con posibilidad de ver su Perfil y último acceso a la plataforma
     . Para que los usuarios puedan modificar sus datos, éstos deben estar logueados, de lo contrario los lleva
       a la página de Login.
-      
+
+  # Apartado About
+    . Breve Descripción de mi Perfil con links a mis Redes Sociales
         
 
 

@@ -33,7 +33,7 @@ Buscar Usuarios
                     <div class="columna col--6of6"><p class="text-muted listado">{{results.first_name}}</p></div>
                     <div class="columna col--6of6"><p class="text-muted listado">{{results.last_name}}</p></div>
                     <div class="columna col--6of6"><p class="text-muted listado">{{results.email}}</p></div>
-                    <a class="listado" href={% url "usuarios:ver_perfil" results.id %}>Ver más</a> 
+                    <a class="listado" href={% url "usuarios:ver_perfil" results.id %}>Ver Perfil</a> 
             {% endfor %}
         </div>
     {% else %}

@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm, UserChangeForm
 from django.contrib.auth import authenticate, login as django_login
-from usuarios.forms import FormCreateUser, FormEditPerfil
+from usuarios.forms import FormCreateUser, FormEditPerfil, buscarFormulario
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from usuarios.models import DatosExtra
+from django.contrib.auth.models import User
 
 def login(request):
     
@@ -67,3 +68,20 @@ class CambiarPassword(LoginRequiredMixin, PasswordChangeView):
     template_name   = 'usuarios/cambiar_password.html'
     
     success_url     = reverse_lazy('usuarios:editar_perfil')
+    
+def buscarUsuarios(request):
+    
+    if request.method == 'POST':
+        search      = request.POST['search']
+        
+        searched    = User.objects.filter(username__contains=search)
+        
+        return render(request, 'usuarios/buscar_usuarios.html', {'search': search, 'searched': searched})
+    else:
+        searched    = User.objects.all()
+        return render(request,'usuarios/buscar_usuarios.html',{'search': '', 'searched': searched})
+        
+def verPerfil(request, id):
+    perfil    = User.objects.get(id=id)
+    return render(request, 'usuarios/ver_perfil.html',{'perfil':perfil})
+    

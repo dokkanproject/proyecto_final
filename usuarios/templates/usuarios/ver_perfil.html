@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title_head %} Perfil de usuario {% endblock title_head %}
+{% block texto_principal %}
+
+{{perfil.perfil}}
+
+{% endblock texto_principal %}
+{% block main %}
+<div class="container col-md-6 form-group">
+    <h4 class="my-3" style="text-align: center;">Detalle del Perfil</h4>
+    <img src={{perfil.datosextra.avatar.url}} alt="" height='90px'>
+    <ul>
+        <li>Usuario: {{perfil.username}}</li>
+        <li>Nombre: {{perfil.first_name}}</li>
+        <li>Apellido: {{perfil.last_name}}</li>
+        <li>Email: {{perfil.email}}</li>
+        <li>ID: {{perfil.id}}</li>
+    </ul>
+    </div>
+{% endblock main %}

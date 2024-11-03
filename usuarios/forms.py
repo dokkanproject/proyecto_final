@@ -15,14 +15,21 @@ class FormCreateUser(UserCreationForm):
         help_texts  = {key: '' for key in fields}
         
 class FormEditPerfil(UserChangeForm):
-    email       = forms.EmailField(label='Email')
-    first_name  = forms.CharField(label='Nombre')
-    last_name   = forms.CharField(label='Apellido')
+    email       = forms.EmailField(label='Email',widget=forms.TextInput(attrs={'style': 'width: 100%;', 'class': 'form-control'}))
+    first_name  = forms.CharField(label='Nombre', widget=forms.TextInput(attrs={'style': 'width: 100%;', 'class': 'form-control'}))
+    last_name   = forms.CharField(label='Apellido', widget=forms.TextInput(attrs={'style': 'width: 100%;', 'class': 'form-control'}))
     password    = None
-    avatar      = forms.ImageField(required=False)
+    avatar      = forms.ImageField(required=False, widget=forms.FileInput(attrs={'style': 'width: 100%;', 'class': 'form-control'}))
     
     class Meta:
         model   = User
         fields  = ['email','first_name','last_name','avatar']
         help_texts  = {key: '' for key in fields}
+
+class UsuariosFormularioBase(forms.Form):
+    email       = forms.EmailField(label='Email',widget=forms.TextInput(attrs={'style': 'width: 100%;', 'class': 'form-control'}))
+    first_name  = forms.CharField(label='Nombre', widget=forms.TextInput(attrs={'style': 'width: 100%;', 'class': 'form-control'}))
+    last_name   = forms.CharField(label='Apellido', widget=forms.TextInput(attrs={'style': 'width: 100%;', 'class': 'form-control'}))
     
+class buscarFormulario(forms.Form):
+    usuarios    = forms.CharField(max_length=20, required=False, widget=forms.TextInput(attrs={'placeholder': '* ingrese el Usuario', 'style': 'width: 100%;', 'class': 'form-control'}))

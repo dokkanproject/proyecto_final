@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title_head %} Buscar Usuarios {% endblock title_head %}
+{% block texto_principal %}
+
+Buscar Usuarios
+
+<div class="container col-md-6 form-group">
+    <form action={% url "usuarios:buscar_usuarios" %} method="POST">
+        {% csrf_token %}
+        <br>
+        <input type="input" class='form-control' placeholder='Buscar Usuarios' name='search'>
+        <br>
+        <div class="form-group">
+            <input class="btn btn-primary btn-xl text-uppercase" type='submit' value='Buscar' />
+        </div>
+    </form>
+</div>
+{% endblock texto_principal %}
+
+{% block main %}
+    {% if searched %}
+    <h4 class="my-3" style="text-align: center;">Usuarios encontrados {{search}}</h4>
+        <div class="contenedorListado">
+            <div class="columna col--6of6"><p class="text-muted titulos">Id</p></div>
+            <div class="columna col--6of6"><p class="text-muted titulos">Usuario</p></div>
+            <div class="columna col--6of6"><p class="text-muted titulos">Nombre</p></div>
+            <div class="columna col--6of6"><p class="text-muted titulos">Apellido</p></div>
+            <div class="columna col--6of6"><p class="text-muted titulos">Email</p></div>
+            <div class="columna col--6of6"><p class="text-muted titulos">Acciones</p></div>
+            {% for results in searched %}
+                    <div class="columna col--6of6"><p class="text-muted listado">{{results.id}}</p></div>
+                    <div class="columna col--6of6"><p class="text-muted listado">{{results.username}}</p></div>
+                    <div class="columna col--6of6"><p class="text-muted listado">{{results.first_name}}</p></div>
+                    <div class="columna col--6of6"><p class="text-muted listado">{{results.last_name}}</p></div>
+                    <div class="columna col--6of6"><p class="text-muted listado">{{results.email}}</p></div>
+                    <a class="listado" href={% url "usuarios:ver_perfil" results.id %}>Ver más</a> 
+            {% endfor %}
+        </div>
+    {% else %}
+    <h4 class="my-3">No existe el Usuario</h4>
+    {% endif %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock main %}

@@ -1,5 +1,8 @@
 # Bienvenidos a mi proyecto Final de Supermercados
 
+# Grabación del proyecto en Funcionamiento y explicación
+  https://www.loom.com/share/30e8c12934b145f6b94263efe5e22b84?sid=0027067f-65cb-4e1f-b9ac-3048e3155a41
+
 Se Creó un Sistema de Carga de Productos para Supermercados
   # Alta de Productos con los Siguientes Campos
     . Nombre del Producto

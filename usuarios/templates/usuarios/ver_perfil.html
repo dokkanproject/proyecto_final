@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title_head %} Perfil de usuario {% endblock title_head %}
 {% block texto_principal %}
 
@@ -8,13 +9,26 @@
 {% block main %}
 <div class="container col-md-6 form-group">
     <h4 class="my-3" style="text-align: center;">Detalle del Perfil</h4>
-    <img src={{perfil.datosextra.avatar.url}} alt="" height='90px'>
-    <ul>
-        <li>Usuario: {{perfil.username}}</li>
-        <li>Nombre: {{perfil.first_name}}</li>
-        <li>Apellido: {{perfil.last_name}}</li>
-        <li>Email: {{perfil.email}}</li>
-        <li>ID: {{perfil.id}}</li>
-    </ul>
+
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                {% if perfil.datosextra.avatar %}
+                    <img src={{perfil.datosextra.avatar.url}} alt="" width='200px' height='200px' class="img-fluid rounded-start">
+                {% endif %}    
+            </div>
+
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Usuario: {{perfil.username}} ID: {{perfil.id}}</h5>
+                    <p class="card-text">Nombre: {{perfil.first_name}}</p>
+                    <p class="card-text">Apellido: {{perfil.last_name}}</p>
+                    <p class="card-text">Email: {{perfil.email}}</p>
+                    <br>
+                    <p class="card-text"><small class="text-muted">Ultimo Acceso: {{perfil.last_login}}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 {% endblock main %}

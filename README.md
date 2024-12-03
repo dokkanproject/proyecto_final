@@ -1,4 +1,4 @@
-# Bienvenidos a mi proyecto Final de Supermercados
+# Proyecto Final coderhouse "Python" Plataforma de Supermercados
 
 # Grabación del proyecto en Funcionamiento y explicación
   https://www.loom.com/share/30e8c12934b145f6b94263efe5e22b84?sid=0027067f-65cb-4e1f-b9ac-3048e3155a41
